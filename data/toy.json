@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "101",
+    "name": "baby car",
+    "price": "2002",
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Baby"
+    ],
+    "inStock": true,
+    "createdAt": 1631031801011
+  },
+  {
+    "_id": "102",
+    "name": "Talking Edi",
+    "price": 40,
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Baby"
+    ],
+    "inStock": false,
+    "createdAt": 1631031801011
+  }
+]
