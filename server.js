@@ -78,7 +78,8 @@ app.put('/api/toy', (req, res) => {
         price: req.body.price,
         labels: req.body.labels,
         inStock: req.body.inStock,
-        createdAt: req.body.createdAt
+        createdAt: req.body.createdAt,
+        imgUrl: req.body.imgUrl
     }
     toyService
         .save(toyToSave)

@@ -8,9 +8,9 @@
       "Battery Powered",
       "Baby"
     ],
-    "inStock": "15",
-    "createdAt": 1631031801011,
-    "imgUrl": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/619-NzPM+YL._AC_SY879_.jpg"
+    "inStock": "40",
+    "imgUrl": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/619-NzPM+YL._AC_SY879_.jpg",
+    "createdAt": 1631031801011
   },
   {
     "_id": "101",
@@ -20,9 +20,8 @@
       "Doll",
       "Baby"
     ],
-    "inStock": "30",
-    "createdAt": 1631031801011,
-    "imgUrl": "https://toysrus.co.il/media/catalog/product/cache/55a044f927b05bedf296cf15120d7cf4/5/0/50211024234_1.jpg"
+    "inStock": "40",
+    "createdAt": 1631031801011
   },
   {
     "_id": "102",
@@ -31,7 +30,7 @@
     "labels": [
       "Baby"
     ],
-    "inStock": "20",
+    "inStock": "40",
     "imgUrl": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81T995z1CTL._AC_UF894,1000_QL80_.jpg",
     "createdAt": 1631031801011
   }
