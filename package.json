@@ -17,7 +17,10 @@
         "cryptr": "^6.0.3",
         "dotenv": "^16.0.3",
         "express": "^4.17.1",
-        "mongodb": "^3.2.7"
+        "mongodb": "^3.2.7",
+        "sass": "^1.59.3",
+        "socket.io": "^4.6.1",
+        "socket.io-client": "^4.6.1"
     },
     "devDependencies": {
         "nodemon": "^2.0.20"
