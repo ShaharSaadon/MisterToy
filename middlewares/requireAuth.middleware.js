@@ -5,8 +5,8 @@ const config = require('../config')
 
 async function requireAuth(req, res, next) {
   const { loggedinUser } = asyncLocalStorage.getStore()
-  // logger.debug('MIDDLEWARE', loggedinUser)
-
+  logger.debug('MIDDLEWARE', loggedinUser)
+  req.loggedinUser=loggedinUser
   if (config.isGuestMode && !loggedinUser) {
     req.loggedinUser = { _id: '', fullname: 'Guest' }
     return next()

@@ -28,47 +28,57 @@ async function deleteReview(req, res) {
     }
 }
 
-
 async function addReview(req, res) {
-    
-    var {loggedinUser} = req
- 
     try {
-        var review = req.body
-        review.byUserId = loggedinUser._id
-        review = await reviewService.add(review)
-        
-        // prepare the updated review for sending out
-        review.aboutUser = await userService.getById(review.aboutUserId)
-        
-        // Give the user credit for adding a review
-        // var user = await userService.getById(review.byUserId)
-        // user.score += 10
-        loggedinUser.score += 10
-
-        loggedinUser = await userService.update(loggedinUser)
-        review.byUser = loggedinUser
-
-        // User info is saved also in the login-token, update it
-        const loginToken = authService.getLoginToken(loggedinUser)
-        res.cookie('loginToken', loginToken)
-
-        delete review.aboutUserId
-        delete review.byUserId
-
-        socketService.broadcast({type: 'review-added', data: review, userId: loggedinUser._id})
-        socketService.emitToUser({type: 'review-about-you', data: review, userId: review.aboutUser._id})
-        
-        const fullUser = await userService.getById(loggedinUser._id)
-        socketService.emitTo({type: 'user-updated', data: fullUser, label: fullUser._id})
-
-        res.send(review)
-
+      const review = req.body
+      const addedReview = await reviewService.add(review)
+      res.send(addedReview)
     } catch (err) {
-        logger.error('Failed to add review', err)
-        res.status(500).send({ err: 'Failed to add review' })
+      logger.error('Failed to add review', err)
+      res.status(500).send({ err: 'Failed to add review' })
     }
-}
+  }
+
+// async function addReview(req, res) {
+    
+//     var {loggedinUser} = req
+ 
+//     try {
+//         var review = req.body
+//         review.byUserId = loggedinUser._id
+//         review = await reviewService.add(review)
+        
+//         // prepare the updated review for sending out
+//         review.aboutUser = await userService.getById(review.aboutUserId)
+        
+//         // Give the user credit for adding a review
+//         // var user = await userService.getById(review.byUserId)
+//         // user.score += 10
+//         loggedinUser.score += 10
+
+//         loggedinUser = await userService.update(loggedinUser)
+//         review.byUser = loggedinUser
+
+//         // User info is saved also in the login-token, update it
+//         const loginToken = authService.getLoginToken(loggedinUser)
+//         res.cookie('loginToken', loginToken)
+
+//         delete review.aboutUserId
+//         delete review.byUserId
+
+//         socketService.broadcast({type: 'review-added', data: review, userId: loggedinUser._id})
+//         socketService.emitToUser({type: 'review-about-you', data: review, userId: review.aboutUser._id})
+        
+//         const fullUser = await userService.getById(loggedinUser._id)
+//         socketService.emitTo({type: 'user-updated', data: fullUser, label: fullUser._id})
+
+//         res.send(review)
+
+//     } catch (err) {
+//         logger.error('Failed to add review', err)
+//         res.status(500).send({ err: 'Failed to add review' })
+//     }
+// }
 
 module.exports = {
     getReviews,

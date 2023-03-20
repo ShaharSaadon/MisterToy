@@ -11,4 +11,4 @@ router.get('/', log, getReviews)
 router.post('/',  log, requireAuth, addReview)
 router.delete('/:id',  requireAuth, deleteReview)
 
-module.exports = router
+module.exports = router 

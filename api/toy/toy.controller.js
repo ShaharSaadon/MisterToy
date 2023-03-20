@@ -71,7 +71,7 @@ async function removeToy(req, res) {
 
 async function addToyMsg(req, res) {
   const {loggedinUser} = req
-  console.log('logged=',loggedinUser)
+  console.log('logged=',req)
   // console.log('logged=',req)
   try {
     const toyId = req.params.id
