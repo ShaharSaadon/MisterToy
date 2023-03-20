@@ -20,10 +20,10 @@ async function query(filterBy = { name: '', labels: [], inStock: undefined }, so
         const sortFields = sortBy.split(':');
         const sortKey = sortFields[0];
         const sortOrder = parseInt(sortFields[1]);
-
+     
         const collection = await dbService.getCollection('toy')
         //var users = await collection.find(criteria).sort({nickname: -1}).toArray()
-
+        console.log('{ [sortKey]: sortOrder }=',{ [sortKey]: sortOrder })
         var toys = await collection.find(criteria).sort({ [sortKey]: sortOrder }).toArray()
 
         return toys
